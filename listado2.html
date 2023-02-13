@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var juegos = [     
+        {"name": "Rocket League", "year": 2015, "Type": "Online"},
+        {"name": "FIFA 22", "year": 2022, "Type": "Online & offline"},
+        {"name": "Brawl Stars", "year": 2017, "Type": "Online"},
+        {"name": "Geometry Dash", "year": 2013, "Type": "Levels"},
+        ];
+    </script>
+</head>
+<body>
+    Nombre: <span id="nombre"></span><br>
+    <input type="button" value="Siguiente" onclick="sig()">
+    <input type="button" value="Anterior" onclick="ant()">
+    <script>
+        var a=0;
+        document.getElementById("nombre").innerHTML = juegos[0].name;
+        function sig() {
+            a=a+1;
+            document.getElementById("nombre").innerHTML = juegos[a%4].name;
+        }
+    function ant() {
+        a=a-1;
+        if (a<0) {
+            a=3;
+        }
+        document.getElementById("nombre").innerHTML = juegos[a%4].name;
+    }
+    </script>
+</body>
+</html>
