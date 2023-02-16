@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var personajes = [     
+        {
+          "imagen":"image/gato.png",
+          "nombre":"Gato",
+          "velocidad":10,
+          "resistencia":3,
+        },
+        {
+          "imagen":"image/perro.png",
+          "nombre":"Perro",
+          "velocidad":25,
+          "resistencia":2,
+        },
+        {
+          "imagen":"image/toro.png",
+          "nombre":"Toro",
+          "velocidad":30,
+          "resistencia":5,
+        },
+        {
+          "imagen":"image/mono.png",
+          "nombre":"Mono",
+          "velocidad":20,
+          "resistencia":4,
+        },
+        ];
+    </script>
+</head>
+<body>
+    <img id="image" alt=""><br>
+    Nombre: <span id="nombre"></span><br>
+    Velocidad: <span id="velocidad"></span><br>
+    Resistencia: <span id="resistencia"></span><br>
+    <input type="button" value="Anterior" onclick="ant()">
+    <input type="button" value="Siguiente" onclick="sig()">
+    <script>
+        var a=0;
+        show();
+        function sig() {
+        a=a+1;
+        if (a>personajes.length-1) {
+            a=0;
+        }
+        show();
+      }
+        function ant() {
+        a=a-1;
+        if (a<0) {
+            a=personajes.length-1;
+        }
+        show();
+      }
+        function show() {
+        document.getElementById("nombre").innerHTML = personajes[a].nombre;
+        document.getElementById("velocidad").innerHTML = personajes[a].velocidad;
+        document.getElementById("resistencia").innerHTML = personajes[a].resistencia;
+        var img=document.getElementById("image");
+        img.setAttribute("src",personajes[a].imagen);
+        }
+    </script>
+</body>
+</html>
